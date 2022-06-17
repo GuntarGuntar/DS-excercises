@@ -14,12 +14,19 @@ The modified ArrayList should be:
 */
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ArrayLists7 {
 
 	public static void removeEveryOther(ArrayList<String> c) {
-		for(int i = (c.size()&~1)-2; i>=0; i-=2) {
-            c.remove(i);
+		Iterator<String> itr = c.iterator();
+		int i = 0;
+		while(itr.hasNext()) {
+		    itr.next();
+		    if(i % 2 == 0) {
+		        itr.remove();
+		    }
+		    i++;
 		}
 	}
 }
